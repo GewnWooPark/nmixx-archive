@@ -1,11 +1,10 @@
-import {Routes, Route, Link, useLocation } from "react-router-dom";
+import {Routes, Route, Link, useLocation, NavLink} from "react-router-dom";
 import Intro from "./pages/Intro";
 import Home from "./pages/Home.jsx";
 import Introduce from "./pages/Introduce.jsx";
 import Discography from "./pages/Discography.jsx";
 import Video from "./pages/Video.jsx";
 import Schedule from "./pages/Schedule.jsx";
-import nmixxLogo from "./assets/엔믹스 로고.png";
 import './App.css'
 
 function App() {
@@ -18,16 +17,44 @@ function App() {
         <header className='topbar'>
             <div className="topbar__left">
                 <Link to="/home" className="logo-link">
-                <img src={nmixxLogo} alt="NMIXX logo"   className="logo-image" />
+                <span className="logo-mark">NMIXX</span>
                 <span className="logo-text">ARCHIVE</span>
                     </Link>
             </div>
             <div className="topbar__center">
                 <nav className="topbar__nav">
-                    <a className="topbar__link" href="/introduce">소개</a>
-                    <a className="topbar__link" href="/discography">음반</a>
-                    <a className="topbar__link" href="/video">영상</a>
-                    <a className="topbar__link" href="/schedule">스케쥴</a>
+                    <NavLink
+                    to="/introduce"
+                    className={({ isActive }) =>
+                    isActive ? "topbar__link topbar__link--active" : "topbar__link"
+                    }
+                    >
+                        소개
+                    </NavLink>
+                    <NavLink
+                    to="/discography"
+                    className={({ isActive }) =>
+                    isActive ? "topbar__link topbar__link--active" : "topbar__link"
+                    }
+                    >
+                        음반
+                    </NavLink>
+                    <NavLink
+                    to="/video"
+                    className={({ isActive }) =>
+                    isActive ? "topbar__link topbar__link--active" : "topbar__link"
+                    }
+                    >
+                        영상
+                        </NavLink>
+                    <NavLink
+                    to="/schedule"
+                    className={({ isActive }) =>
+                    isActive ? "topbar__link topbar__link--active" : "topbar__link"
+                    }
+                    >
+                        스켸쥴
+                        </NavLink>
                 </nav>
             </div>
             <div className="topbar__right">

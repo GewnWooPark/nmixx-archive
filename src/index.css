@@ -1,4 +1,7 @@
 body {
-    background: #eaf3f7;
+    background: #dbe7ef;
     margin: 0;
+}
+html, body {
+    overscroll-behavior: none;
 }
