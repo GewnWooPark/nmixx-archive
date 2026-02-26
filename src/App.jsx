@@ -53,7 +53,7 @@ function App() {
                     isActive ? "topbar__link topbar__link--active" : "topbar__link"
                     }
                     >
-                        스켸쥴
+                        스케쥴
                         </NavLink>
                 </nav>
             </div>
