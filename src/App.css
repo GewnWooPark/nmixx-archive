@@ -124,6 +124,7 @@
 .home__banner {
     position: relative;
     width: 100%;
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -183,4 +184,175 @@
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+.home__banner-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* --- 하단 3D 커버플로우 & 동적 정보 패널 --- */
+.introduce__members-interactive {
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* 왼쪽 갤러리 영역 */
+.swiper-section {
+    width: 60%;
+    overflow: hidden; /* Swiper 바깥으로 그림자가 나가는 것 방지 */
+}
+
+.member-swiper {
+    width: 100%;
+    padding: 30px 0;
+}
+
+.member-slide {
+    width: 220px;
+    aspect-ratio: 3 / 4;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    /* 👇 추가: 슬라이드 전체의 투명한 빈 공간은 클릭(터치)을 무시하도록 설정 */
+    pointer-events: none;
+}
+
+.member-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* 👇 추가: 실제 이미지가 있는 영역만 클릭(터치)을 100% 인식하도록 복구 */
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* 오른쪽 정보 패널 */
+.info-panel {
+    width: 40%;
+    padding: 35px;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease; /* 내용이 바뀔 때 부드럽게 */
+}
+
+.info-panel__title {
+    font-family: "Pretendard", sans-serif;
+    font-size: 28px;
+    margin: 0;
+    color: #111;
+}
+
+.info-panel__eng {
+    font-family: "Teko", sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: #555;
+    margin: 5px 0 20px 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.info-panel__content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.info-panel__bio {
+    margin-bottom: 20px;
+}
+
+.info-panel__stats strong {
+    color: #000;
+}
+
+.btn-wiki {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.05);
+    color: #111;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.btn-wiki:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* --- 이미지 확대 팝업 (Modal) --- */
+.image-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* 반투명 검은 배경 */
+    backdrop-filter: blur(5px); /* 배경 블러 처리 */
+    z-index: 9999; /* 화면 맨 앞으로 띄우기 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out; /* 클릭하면 닫힌다는 느낌을 주는 커서 */
+    animation: fadeIn 0.3s ease;
+}
+
+.image-popup__content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    cursor: default; /* 이미지 영역은 기본 커서 */
+}
+
+.image-popup__content img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    display: block;
+    animation: scaleUp 0.3s ease;
+}
+
+.image-popup__close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 36px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.2s;
+}
+
+.image-popup__close:hover {
+    transform: scale(1.1);
+}
+
+/* 팝업 등장 애니메이션 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0.95); }
+    to { transform: scale(1); }
 }
