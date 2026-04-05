@@ -1,3 +1,4 @@
+/*상단바*/
 .topbar {
     height: 45px;
     background: rgba(255, 255, 255, 0.15);
@@ -13,30 +14,20 @@
     padding: 0 24px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
-
+/*상단바 왼쪽*/
 .topbar__left {
     display: flex;
     align-items: center;
     gap: 45px;
 }
-
+/*상단바 오른쪽*/
 .topbar__right {
     display: flex;
     align-items: center;
     justify-self: end;
     gap: 8px;
 }
-
-.logo-mark {
-    font-family: "Teko", sans-serif;
-    font-size: 32px;
-    line-height: 1;
-    letter-spacing: 1px;
-    margin: 0;
-    padding: 0;
-    display: block;
-}
-
+/*로고*/
 .logo-text {
     font-family: "Teko", sans-serif;
     font-size: 35px;
@@ -48,19 +39,19 @@
     position: relative;
     top: 2.5px;
 }
-
+/*탭 중앙정렬*/
 .topbar__center {
     display: flex;
     justify-content: center;
 }
-
+/*탭 위치 정렬*/
 .topbar__nav {
     display: flex;
     gap: 24px;
     align-items: center;
     height: 45px;
 }
-
+/*탭 글자 속성*/
 .topbar__link {
     font-family: "Teko", sans-serif;
     color: black;
@@ -76,16 +67,16 @@
     align-items: center;
     transition: color 150ms ease, background-color 150ms ease;
 }
-
+/*호버 속성*/
 .topbar__link:hover {
     transform: scale(1.05);
 }
-
+/*탭 활성화*/
 .topbar__link--active {
     transform: scale(1.08);
     border-bottom: 2px solid #111;
 }
-
+/*로고 이미지, 글자의 위치 속성*/
 .logo-link {
     display: inline-flex;
     align-items: center;
@@ -93,7 +84,7 @@
     text-decoration: none;
     color: inherit;
 }
-
+/*디데이 속성*/
 .dday-chip {
     font-family: "Pretendard", sans-serif;
     font-size: 20px;
@@ -104,7 +95,7 @@
     top: 1px;
 
 }
-
+/*통합 검색창 속성*/
 .search-button {
     width: 32px;
     height: 32px;
@@ -115,55 +106,55 @@
     cursor: pointer;
     padding: 0;
 }
-
+/*통합 검색창 아이콘 속성*/
 .search-icon {
     font-size: 14px;
     line-height: 1px;
+    transition: all 0.2s ease;
 }
-
+/*통합 검색창 호버 기능*/
+.search-button:hover .search-icon {
+    transform: scale(1.2);
+}
+/*홈화면 배너*/
 .home__banner {
     position: relative;
     width: 100%;
     height: 100vh;
     overflow: hidden;
 }
-
-.home__banner-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-
+/*엔믹스 로고 이미지*/
 .logo-image {
     height: 30px;
     width: 60px;
     display: block;
 }
-
+/*상단바 만큼 소개 탭에 여백*/
 .introduce {
-    padding-top: 45px;
+    padding-top: 46px;
 }
+/*그룹소개 최상위 클래스*/
 .introduce__group {
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
     gap: 24px;
-    align-items: start;
+    align-items: stretch;
 }
-
+/*그룹 소개 이미지*/
 .introduce__group-photo img {
     width: 100%;
     height: auto;
     display: block;
     border-radius: 20px;
 }
-
+/*그룹 소개 소개란*/
 .introduce__group-info {
     padding: 20px;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.6);
     border: 1px solid rgba(0, 0, 0, 0.08);
 }
+
 .member-strip {
     display: grid;
     grid-auto-flow: column;
@@ -346,6 +337,42 @@
     transform: scale(1.1);
 }
 
+.swiper-wrapper {
+    pointer-events: none;
+}
+
+.member-slide {
+    position: relative;
+    pointer-events: none;
+}
+
+.zoom-btn {
+    position: absolute;
+    top: 8px;
+    right: 5px;
+    width: 36px;
+    height: 36px;
+
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+
+.zoom-btn:hover {
+    color: #000000; /* 더 진해지게 */
+    transform: scale(1.15); /* 배경이 없으니 살짝 더 키워도 예쁩니다. */
+}
+
 /* 팝업 등장 애니메이션 */
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -356,3 +383,113 @@
     from { transform: scale(0.95); }
     to { transform: scale(1); }
 }
+
+/* --- 💿 DISCOGRAPHY 기본 세팅 --- */
+.discography {
+    padding: 50px 20px;
+    background-color: #dcedff;
+    min-height: 100vh;
+}
+
+.discography__title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 40px;
+    color: #000;
+}
+
+/* --- 상단 슬라이더 --- */
+.album-slider-container {
+    width: 100%;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.album-swiper {
+    padding: 40px 0; /* 💡 사진이 커졌을 때 위아래가 잘리지 않도록 넉넉한 공간 확보 */
+}
+
+/* 🎯 핵심 1: 껍데기 박스는 절대 크기가 변하면 안 됩니다! 고정! */
+.album-slide {
+    width: 200px; /* 슬라이드 한 칸의 고정 크기 */
+    cursor: pointer;
+}
+
+/* 🎯 핵심 2: 알맹이 사진만 작게 줄여놓고 대기합니다. */
+.album-slide .album-img {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    transition: all 0.4s ease-out; /* 부드러운 전환 */
+
+    transform: scale(0.85); /* 기본적으로 살짝 작게 */
+    opacity: 0.5;
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: auto;/* 기본적으로 살짝 투명하게 */
+}
+
+/* 🎯 핵심 3: 정중앙(Active)에 오면 알맹이 사진만 커집니다! */
+.album-swiper .swiper-slide-active .album-img {
+    transform: scale(1.15); /* 다시 원래 크기 이상으로 확대! */
+    opacity: 1; /* 선명해짐! */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4); /* 예쁜 그림자 추가 */
+}
+
+/* --- 🎵 하단 트랙리스트 상자 --- */
+.tracklist-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+}
+
+.tracklist-panel {
+    background: linear-gradient(to bottom, #2b3b5c, #1a2235);
+    border-radius: 15px;
+    padding: 30px 40px;
+    color: white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    position: relative;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+
+.tracklist-tail {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 15px 15px 15px;
+    border-style: solid;
+    border-color: transparent transparent #2b3b5c transparent;
+}
+
+.panel-album-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.panel-album-type {
+    font-size: 0.9rem;
+    color: #8892b0;
+    margin-bottom: 20px;
+}
+
+.track-list-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin-bottom: 20px;
+}
+
+.track-space {
+    text-align: center;
+    padding: 50px 0;
+    color: #8892b0;
+    border: 2px dashed rgba(255,255,255,0.05);
+    border-radius: 10px;
+    font-style: italic;
+}}
